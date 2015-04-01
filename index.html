@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Complimentary Tours</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href='http://fonts.googleapis.com/css?family=Open+Sans|Open+Sans+Condensed:700' rel='stylesheet' type='text/css'>
+        <link rel="stylesheet" href="css/demostyles.css">
+        <link rel="stylesheet" href="css/simple-slideshow-styles.css">
+
+<!--        <style>
+          .slide_img{
+            height: 100%;
+            width: auto;
+          }
+        </style>
+-->
+    </head>
+    <body>
+        <!--[if lt IE 8]>
+            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+        <header>
+            <h1>A Better Simple Slideshow</h1>
+            <p><span class="desc">A simple DIY responsive JavaScript slideshow.</span> [<a href="https://github.com/leemark/better-simple-slideshow">GitHub<span> repo</span></a>]</p>
+        </header>    
+        <div class="bss-slides num1" tabindex="1" autofocus="autofocus">
+            <figure>
+		      <img src="img/sunrise.jpg" width="100%" /><figcaption>"Sunrise in Eastern Colorado" by <a href="https://www.flickr.com/photos/35528040@N04/6673031153">Pam Morris</a>.</figcaption> 
+            </figure>
+            <figure>
+		      <img src="https://lh3.googleusercontent.com/-vP2L7bT0UX0/AAAAAAAAAAI/AAAAAAAAAKk/kFpKi4d_6JE/photo.jpg" width="100%" /><figcaption>"Colorado" by <a href="https://www.flickr.com/photos/stuckincustoms/88370744">Trey Ratcliff</a>.</figcaption> 
+            </figure>
+            <figure>
+		      <img src="https://c2.staticflickr.com/6/5348/9155150008_aa021b2fa9_z.jpg" width="100%" class="slide_img"/><figcaption>"Medium" by <a href="https://www.flickr.com/photos/thomashawk/14586158819/">Thomas Hawk</a>.</figcaption> 
+            </figure>
+            <figure>
+		      <img src="img/monte-vista.jpg" width="100%" /><figcaption>"Early Morning at the Monte Vista Wildlife Refuge, Colorado" by <a href="https://www.flickr.com/photos/davesoldano/8572429635">Dave Soldano</a>.</figcaption> 
+            </figure>
+            <figure>
+		      <img src="img/colorado-colors.jpg" width="100%" /><figcaption>"colorado colors" by <a href="https://www.flickr.com/photos/cptspock/2857543585">Jasen Miller</a>.</figcaption> 
+            </figure>
+        </div> <!-- // bss-slides -->  
+<div class="content">
+<h2>What is it?</h2>
+
+<p>It's a fairly basic slideshow, written in javascript. This is a dual-purpose project, it's meant to be something you can drop right into your page and use if you so choose, but it's also meant as an example/tutorial script showing how to build a simple DIY slideshow from scratch on your own. <a href="http://themarklee.com/2014/10/05/better-simple-slideshow/">Here is a tutorial/walkthrough</a>.</p>
+        
+<h2>Features</h2>
+<ul>
+    <li>fully responsive</li>
+    <li>option for auto-advancing slides, or manually advancing by user</li>
+    <li>multiple slideshows per-page</li>
+    <li>supports arrow-key navigation</li>
+    <li>full-screen toggle using HTML5 fullscreen api</li>
+    <li>swipe events supported on touch devices (requires <a href="https://github.com/hammerjs/hammer.js">hammer.js</a>)</li>
+    <li>written in vanilla JS--this means no jQuery dependency (much &hearts; for <a href="https://github.com/jquery/jquery">jQuery</a> though!)</li>
+</ul>
+        
+<h2>Getting Started</h2>
+<ol>
+<li><p>HTML markup for the slideshow should look basically like this, with a container element wrapping the whole thing (doesn't have to be a <span class="code">&lt;div&gt;</span>) and each slide is a <span class="code">&lt;figure&gt;</span>.</p>
+
+<script src="https://gist.github.com/leemark/83571d9f8f0e3ad853a8.js"></script> </li>   
+
+<li>Include the script: <span class="code">js/better-simple-slideshow.min.js</span> or <span class="code">js/better-simple-slideshow.js</span></li>
+<li>Include the stylesheet <span class="code">css/simple-slideshow-styles.css</span></li>
+<li>Initialize the slideshow:
+<script src="https://gist.github.com/leemark/479d4ecc4df38fba500c.js"></script>
+</li>
+</ol>
+</div> <!-- // content -->   
+<footer>Complimentary Tours by Kris Occhipinti <a href="https://www.gnu.org/licenses/agpl-3.0.html" target="_blank">License</a>. 
+<br>
+Slide Show Based On Work By <a href="http://themarklee.com">Mark Lee</a>
+<br><span>&#9774; + &hearts;</span></footer>        
+<script src="js/hammer.min.js"></script><!-- for swipe support on touch interfaces -->
+<script src="js/better-simple-slideshow.min.js"></script>
+<script>
+var opts = {
+    auto : {
+        speed : 3000, 
+        pauseOnHover : false
+    },
+    fullScreen : false, 
+    swipe : true
+};
+makeBSS('.num1', opts);
+
+</script>
+</body>
+</html>
