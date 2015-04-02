@@ -29,22 +29,11 @@
             <h1 id="address"></h1>
             <p><a class="website"><span class="desc" id="realtor"></span></a></p>
         </header>    
-        <div class="bss-slides num1" tabindex="1" autofocus="autofocus">
-            <figure>
-		      <img src="img/sunrise.jpg" width="100%" /><figcaption>"Sunrise in Eastern Colorado" by <a href="https://www.flickr.com/photos/35528040@N04/6673031153">Pam Morris</a>.</figcaption> 
-            </figure>
-            <figure>
-		      <img src="https://lh3.googleusercontent.com/-vP2L7bT0UX0/AAAAAAAAAAI/AAAAAAAAAKk/kFpKi4d_6JE/photo.jpg" class="slide_img" width="100%" /><figcaption>"Colorado" by <a href="https://www.flickr.com/photos/stuckincustoms/88370744">Trey Ratcliff</a>.</figcaption> 
-            </figure>
-            <figure>
-		      <img src="https://c2.staticflickr.com/6/5348/9155150008_aa021b2fa9_z.jpg" height="100%" class="slide_img"/><figcaption>"Medium" by <a href="https://www.flickr.com/photos/thomashawk/14586158819/">Thomas Hawk</a>.</figcaption> 
-            </figure>
-            <figure>
-		      <img src="img/monte-vista.jpg" width="100%" /><figcaption>"Early Morning at the Monte Vista Wildlife Refuge, Colorado" by <a href="https://www.flickr.com/photos/davesoldano/8572429635">Dave Soldano</a>.</figcaption> 
-            </figure>
-            <figure>
-		      <img src="img/colorado-colors.jpg" width="100%" /><figcaption>"colorado colors" by <a href="https://www.flickr.com/photos/cptspock/2857543585">Jasen Miller</a>.</figcaption> 
-            </figure>
+        <div class="bss-slides num1" tabindex="1" autofocus="autofocus" id="num1">
+          <?php 
+            $pid=$_GET['pid'];
+            include("get_photos1.php");
+          ?>
         </div> <!-- // bss-slides -->  
 <div class="content">
 <h2>What is it?</h2>
@@ -98,6 +87,23 @@ makeBSS('.num1', opts);
     if(getUrlParameter('pid')){
       var pid = getUrlParameter("pid");
       $("#pid").val(getUrlParameter("pid"));
+      $.get('get_photos.php?pid='+pid, function(data){
+        var imgs = data.split(",");
+        for(var i=0;i<imgs.length;i++){
+          if(imgs[i] != ""){
+            var img=imgs[i].split("/")[2].split(".")[0];
+            $("#num1").append($("<figure>")
+              .attr("id", img+"_fig")
+            );
+            $("#"+img+"_fig").append($("<img>")
+              .attr("src", imgs[i])
+              .attr("id", img)
+            );  
+            $("#"+img).append('<figcaption>');
+
+          }
+        }
+      });
     }else{
       window.location = "index.php";
     }
